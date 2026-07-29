@@ -55,13 +55,21 @@
 
   ::selection { background: var(--champagne); color: var(--preto); }
 
+  /* A Syne embutida e estatica no peso 800 — pedir 700 nao muda nada, o
+     navegador reusa a mesma face. Por isso a legibilidade de titulo pequeno
+     se resolve por entrelinha, tracking e tamanho, nunca por peso. */
   h1, h2, h3 {
     font-family: 'Syne', 'Plus Jakarta Sans', sans-serif;
     font-weight: 800;
-    line-height: 1.08;
-    letter-spacing: -0.02em;
     text-wrap: balance;
   }
+  /* Entrelinha e tracking sao inversos ao tamanho: manchete aperta, titulo
+     pequeno precisa de ar. A regra antiga valia 1.08/-0.02em para os tres
+     niveis — no h3 de 17px sobrava 1,36px entre linhas, menos folga que o
+     paragrafo de 14px logo abaixo. */
+  h1 { line-height: 1.08; letter-spacing: -0.02em; }
+  h2 { line-height: 1.16; letter-spacing: -0.012em; }
+  h3 { line-height: 1.28; letter-spacing: 0; }
   h1 .gold, h2 .gold { color: var(--champagne); }
 
   a { color: var(--champagne); text-decoration: none; }
@@ -307,7 +315,9 @@
     background: rgba(200, 184, 135, 0.12);
     box-shadow: 0 10px 30px rgba(7, 17, 28, .5);
   }
-  .serv h3 { font-size: 17px; color: var(--creme); margin-bottom: 10px; }
+  /* 19px, nao 17: contra corpo de 14px, 3px de diferenca faz o titulo buscar
+     hierarquia no peso — e e o peso que fecha a contraforma da Syne. */
+  .serv h3 { font-size: 19px; color: var(--creme); margin-bottom: 10px; }
   .serv p { color: var(--prata); font-size: 14px; }
   .serv .tag {
     display: inline-block;
@@ -665,12 +675,10 @@
     <div class="prova-grid">
       <div class="depo rv">
         <blockquote>"A Genesis entendeu o nosso escritório antes de desenhar qualquer coisa. Cada peça passa pela nossa aprovação — o resultado tem a nossa cara."</blockquote>
-        <!-- atribuicao pendente (ver PENDENCIAS-DEPOIMENTOS.md no kit) -->
         <cite><strong>Escritório de advocacia</strong>cliente da Genesis</cite>
       </div>
       <div class="depo rv">
         <blockquote>"Antes eu tinha um Instagram. Hoje tenho uma marca que me representa — e clientes que chegam confiando no meu trabalho."</blockquote>
-        <!-- atribuicao pendente (ver PENDENCIAS-DEPOIMENTOS.md no kit) -->
         <cite><strong>Advocacia</strong>cliente da Genesis</cite>
       </div>
     </div>
