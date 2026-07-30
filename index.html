@@ -218,7 +218,7 @@
   }
   .dor-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
     gap: 20px;
   }
   .dor-card {
@@ -338,7 +338,7 @@
   /* Prova */
   .prova-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: 20px;
   }
   .depo {
@@ -383,7 +383,7 @@
   /* ===== Quem faz — editorial, sem caixa (MP-11c) ===== */
   .time-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
     gap: 40px;
     max-width: 860px;
   }
@@ -533,6 +533,8 @@
      titulo passa a encolher junto com a tela. Acima de 400px nada muda. */
   @media (max-width: 400px) {
     h2 { font-size: clamp(19px, 5.9vw, 23px); }
+    /* o dominio em caixa-alta com tracking de 2px media 324px numa tela de 320 */
+    .foot .dom { font-size: 11px; letter-spacing: 1px; }
   }
 
   @media (max-width: 640px) {
